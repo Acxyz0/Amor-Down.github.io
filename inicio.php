@@ -85,6 +85,10 @@ if (empty($_SESSION["id"])) {
                 <a class="btn btn-warning" href="Sesiones.php">Asignar Sesiones</a>
             </div>
 
+                        <div>
+                <a class="btn btn-warning" href="Sesiones.php">Asignar Sesiones</a>
+            </div>
+            
             <br>
 
             <div>
