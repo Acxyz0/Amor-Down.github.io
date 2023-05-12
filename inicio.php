@@ -1,11 +1,3 @@
-<?php
-
-session_start();
-if (empty($_SESSION["id"])) {
-    header("location: login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +80,7 @@ if (empty($_SESSION["id"])) {
                         <div>
                 <a class="btn btn-warning" href="Sesiones.php">Asignar Sesiones</a>
             </div>
-            
+
             <br>
 
             <div>
