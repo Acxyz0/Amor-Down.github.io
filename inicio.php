@@ -35,19 +35,6 @@
 
 <body class="container my-background">
     <br>
-    <section>
-        <nav>
-            <div class="container-fluid text-center float-right  bg-light text-muted mostrar_nombre" id="">
-                <b>
-                    <?php
-                    echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"];
-                    ?>
-                </b>
-            </div>
-        </nav>
-    </section>
-
-    <br>
     <br>
     <br>
 
