@@ -30,23 +30,27 @@ if (isset($_FILES["fileToUpload"])) {
  echo "Lo siento, tu archivo no fue subido.";
  // Si todo está bien, intenta subir el archivo
  } else {
- if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
- echo "El archivo ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " ha sido subido.";
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "El archivo ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])). " ha sido subido.";
 
- // Guarda información sobre el archivo en la base de datos
- $codigoBeneficiario = $_POST["codigoBeneficiario"];
- $nombreArchivo = basename($_FILES["fileToUpload"]["name"]);
- $descripcion = $_POST["descripcion"];
- $stmt = $conn->prepare("INSERT INTO archivos codigobeneficiario, nombrearchivo, descripcion) VALUES (?, ?, ?)");
- $stmt->bind_param("ssss",$codigoBeneficiario, $nombreArchivo, $descripcion);
- if ($stmt->execute()) {
- echo "Información del archivo guardada en la base de datos.";
- } else {
- echo "Error al guardar información del archivo en la base de datos: " . $stmt->error;
- }
- } else {
- echo "Lo siento, hubo un error al subir tu archivo.";
- }
- }
+        if (!empty($_POST['submit'])) {
+            if(empty($_POST['codigoBeneficiario']) or empty($_POST['descripcion'])) {
+            } else {
+                $codigoBeneficiario = $_POST["codigoBeneficiario"];
+                $nombreArchivo = basename($_FILES["fileToUpload"]["name"]);
+                $descripcion = $_POST["descripcion"];
+
+                $stmt = $conn->prepare("INSERT INTO archivos (codigobeneficiario, nombrearchivo, descripcion) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $codigoBeneficiario, $nombreArchivo, $descripcion);
+
+                if ($stmt->execute()) {
+                    echo "";
+                } else {
+                    echo "Error al guardar información del archivo en la base de datos: " . $stmt->error;
+                }
+            }
+        }
+    }
+}
 }
 ?>

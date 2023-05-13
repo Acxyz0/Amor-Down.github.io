@@ -129,10 +129,6 @@
 <body class="container text-center my-background">
     <form method="post" action="" enctype="multipart/form-data">
 
-        <section>
-            <nav id="nav"></nav>
-        </section>
-
         <section class="Section-P1"> <!--Datos Generales-->
             <br>
             <h1 class="Title">Datos Generales</h1>
@@ -144,28 +140,28 @@
                     <div>
 
                         <p>Nombres</p>
-                        <input type="text" name="nombres" id="">
+                        <input type="text" name="nombres" id="nombres">
 
                         <p>Apellidos</p>
                         <input type="text" name="apellidos" id="">
 
                         <p>Fecha de nacimiento</p>
-                        <input type="date" name="fechaN" id="">
+                        <input type="text" name="fechaN" id="">
 
                         <p>Escolaridad</p>
                         <input type="text" name="escolaridad" id="">
 
                         <p>Fecha de Ingreso</p>
-                        <input type="datetime-local" name="fechaI" id="">
+                        <input type="text" name="fechaI" id="">
 
                         <p>Dirección</p>
                         <input type="text" name="direccion" id="">
 
                         <p>Número de Hermanos</p>
-                        <input type="number" name="numeroH" id="">
+                        <input type="text" name="numeroH" id="">
 
                         <p>Lugar que ocupa</p>
-                        <input type="number" name="numeroOH" id="">
+                        <input type="text" name="numeroOH" id="">
 
                         <h4>Datos del Encargado</h4>
 
@@ -173,7 +169,7 @@
                         <input type="text" name="nombreE" id="">
 
                         <p>Edad</p>
-                        <input type="number" name="edadE" id="">
+                        <input type="text" name="edadE" id="">
 
                         <p>Escolaridad</p>
                         <input type="text" name="escolaridadE" id="">
@@ -275,8 +271,8 @@
                     <div>
 
                         <p>¿El niño lloro inmediatamente?</p>
-                        <input type="checkbox" name="checkbox10" id="">Si
-                        <input type="checkbox" name="checkbox10" id="">No
+                        <input type="checkbox" name="checkbox10" id="" value="si">Si
+                        <input type="checkbox" name="checkbox10" id="" value="no">No
 
                         <p>¿Su coloración fue normal?</p>
                         <input type="checkbox" name="checkbox11" id="" value="si">Si
@@ -303,28 +299,28 @@
                     <div>
 
                         <p>¿Tuvo tratamiento después del parto?</p>
-                        <input type="checkbox" name="checkbox14" id="">Si
-                        <input type="checkbox" name="checkbox14" id="">No
+                        <input type="checkbox" name="checkbox14" id="" value="si">Si
+                        <input type="checkbox" name="checkbox14" id="" value="no">No
 
                         <p>¿Tuvo algun tipo de infección?</p>
-                        <input type="checkbox" name="checkbox15" id="">Si
-                        <input type="checkbox" name="checkbox15" id="">No
+                        <input type="checkbox" name="checkbox15" id="" value="si">Si
+                        <input type="checkbox" name="checkbox15" id="" value="no">No
 
                         <p>¿Tuvo fiebres?</p>
-                        <input type="checkbox" name="checkbox16" id="">Si
-                        <input type="checkbox" name="checkbox16" id="">No
+                        <input type="checkbox" name="checkbox16" id="" value="si">Si
+                        <input type="checkbox" name="checkbox16" id="" value="no">No
 
                         <p>¿Tuvo convulciones?</p>
-                        <input type="checkbox" name="checkbox17" id="">Si
-                        <input type="checkbox" name="checkbox17" id="">No
+                        <input type="checkbox" name="checkbox17" id="" value="si">Si
+                        <input type="checkbox" name="checkbox17" id="" value="no">No
 
                         <p>¿El paciente tiene lenguaje?</p>
-                        <input type="checkbox" name="checkbox18" id="">Si
-                        <input type="checkbox" name="checkbox18" id="">No
+                        <input type="checkbox" name="checkbox18" id="" value="si">Si
+                        <input type="checkbox" name="checkbox18" id="" value="no">No
 
                         <p>¿El paciente camina?</p>
-                        <input type="checkbox" name="checkbox19" id="">Si
-                        <input type="checkbox" name="checkbox19" id="">No
+                        <input type="checkbox" name="checkbox19" id="" value="si">Si
+                        <input type="checkbox" name="checkbox19" id="" value="no">No
 
                     </div>
 
@@ -342,11 +338,7 @@
                     <p for="descripcion">Descripción:</p>
                     <input type="text" id="descripcion" name="descripcion"><br><br>
 
-                    <div>
-                        <?php
-                        include("controlador/controlador Subir archivos.php");
-                        ?>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -355,6 +347,19 @@
         <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br><br>
 
         <input class="btn btn-primary" type="submit" value="Guardar Datos" name="submit">
+
+        <div>
+        <?php
+        include("IngresarDatosFI/datosbeneficiario.php");
+        include("IngresarDatosFI/datosencargado.php");
+        include("IngresarDatosFI/datoshistorialclinico.php");
+        include("IngresarDatosFI/datosperinatales.php");
+        include("IngresarDatosFI/datospostnatales.php");
+        include("IngresarDatosFI/datosprenatales.php");
+        include("IngresarDatosFI/datosreferencia.php");
+        include("controlador/controlador Subir archivos.php");
+        ?>
+        </div>
 
         <div>
             <br><a class="btn btn-warning" href="inicio.php">Inicio</a>
@@ -370,21 +375,6 @@
                 $(this).nextAll("div.div-data:first").slideToggle();
             });
         });
-    </script>
-
-    <script>
-        function updateNav() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("nav").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "getBeneficiario.php", true);
-            xhttp.send();
-        }
-
-        setInterval(updateNav, 1000); // Actualiza el nav cada segundo
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
