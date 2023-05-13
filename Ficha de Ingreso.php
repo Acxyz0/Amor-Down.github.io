@@ -338,8 +338,6 @@
                 <div class="div-data">
                     <p for="codigoArchivo">Código del archivo:</p>
                     <input type="text" id="codigoArchivo" name="codigoArchivo"><br>
-                    <p for="codigoBeneficiario">Código del beneficiario:</p>
-                    <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br>
                     <p for="descripcion">Descripción:</p>
                     <input type="text" id="descripcion" name="descripcion"><br><br>
                     <p for="fileToUpload">Selecciona el archivo PDF:</p>
@@ -355,6 +353,9 @@
                 </div>
             </div>
         </section>
+
+        <p for="codigoBeneficiario">Código del beneficiario:</p>
+        <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br>
 
         <div>
             <br><a class="btn btn-warning" href="inicio.php">Inicio</a>

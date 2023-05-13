@@ -34,12 +34,11 @@ if (isset($_FILES["fileToUpload"])) {
  echo "El archivo ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " ha sido subido.";
 
  // Guarda información sobre el archivo en la base de datos
- $codigoArchivo = $_POST["codigoArchivo"];
  $codigoBeneficiario = $_POST["codigoBeneficiario"];
  $nombreArchivo = basename($_FILES["fileToUpload"]["name"]);
  $descripcion = $_POST["descripcion"];
- $stmt = $conn->prepare("INSERT INTO archivos (codigoarchivo, codigobeneficiario, nombrearchivo, descripcion) VALUES (?, ?, ?, ?)");
- $stmt->bind_param("ssss", $codigoArchivo, $codigoBeneficiario, $nombreArchivo, $descripcion);
+ $stmt = $conn->prepare("INSERT INTO archivos codigobeneficiario, nombrearchivo, descripcion) VALUES (?, ?, ?)");
+ $stmt->bind_param("ssss",$codigoBeneficiario, $nombreArchivo, $descripcion);
  if ($stmt->execute()) {
  echo "Información del archivo guardada en la base de datos.";
  } else {
