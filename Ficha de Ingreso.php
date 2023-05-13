@@ -129,6 +129,10 @@
 <body class="container text-center my-background">
     <form method="post" action="" enctype="multipart/form-data">
 
+        <section>
+            <nav id="nav"></nav>
+        </section>
+
         <section class="Section-P1"> <!--Datos Generales-->
             <br>
             <h1 class="Title">Datos Generales</h1>
@@ -345,7 +349,7 @@
 
                     <div>
                         <?php
-                        include ("controlador/controlador Subir archivos.php");
+                        include("controlador/controlador Subir archivos.php");
                         ?>
                     </div>
                 </div>
@@ -366,6 +370,21 @@
                 $(this).nextAll("div.div-data:first").slideToggle();
             });
         });
+    </script>
+
+    <script>
+        function updateNav() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("nav").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "getBeneficiario.php", true);
+            xhttp.send();
+        }
+
+        setInterval(updateNav, 1000); // Actualiza el nav cada segundo
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
