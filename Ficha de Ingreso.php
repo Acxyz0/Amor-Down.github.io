@@ -233,7 +233,7 @@
                         <input type="checkbox" name="checkbox6" id="" value="si">Si
                         <input type="checkbox" name="checkbox6" id="" value="no">No
                         <p>Defina</p>
-                        <input type="text" name="cirugias" id="textbox6">
+                        <input type="text" name="definacirugias" id="textbox6">
 
                     </div>
 
@@ -336,14 +336,11 @@
             <div>
                 <h1> Selecciona el archivo PDF:</h1>
                 <div class="div-data">
-                    <p for="codigoArchivo">Código del archivo:</p>
-                    <input type="text" id="codigoArchivo" name="codigoArchivo"><br>
-                    <p for="descripcion">Descripción:</p>
-                    <input type="text" id="descripcion" name="descripcion"><br><br>
                     <p for="fileToUpload">Selecciona el archivo PDF:</p>
                     <input class="btn btn-primary" type="file" id="fileToUpload" name="fileToUpload"><br><br>
 
-                    <input class="btn btn-primary" type="submit" value="Subir archivo" name="submit">
+                    <p for="descripcion">Descripción:</p>
+                    <input type="text" id="descripcion" name="descripcion"><br><br>
 
                     <div>
                         <?php
@@ -355,7 +352,9 @@
         </section>
 
         <p for="codigoBeneficiario">Código del beneficiario:</p>
-        <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br>
+        <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br><br>
+
+        <input class="btn btn-primary" type="submit" value="Guardar Datos" name="submit">
 
         <div>
             <br><a class="btn btn-warning" href="inicio.php">Inicio</a>
