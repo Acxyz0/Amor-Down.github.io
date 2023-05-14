@@ -6,12 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+               .my-background {
+            background-color: floralwhite;
+            background-size: 100% auto;
+        }
+    </style>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Ver Achivos de Beneficiarios</title>
 </head>
 
-<body>
+<body class="my-background">
     <h1>Mostrar archivos</h1>
     <label for="codigoBeneficiario">Código del beneficiario:</label>
     <input type="text" id="codigoBeneficiario" name="codigoBeneficiario">
@@ -24,7 +31,7 @@
     <br>
     <br>
     <div>
-        <a class="btn btn-warning" href="inicio.php">Inicio</a>
+        <a class="btn btn-success" href="inicio.php">Inicio</a>
     </div>
 
     <script>

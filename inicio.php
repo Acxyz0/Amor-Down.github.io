@@ -49,25 +49,19 @@
             </div>
 
             <div>
-                <a class="btn btn-warning" href="Ficha de Ingreso.php">Ficha de Ingreso</a>
+                <a class="btn btn-success" href="Ficha de Ingreso.php">Ficha de Ingreso</a>
             </div>
 
             <br>
 
             <div>
-                <a class="btn btn-warning" href="archivos.php">Ver archivos pdf</a>
+                <a class="btn btn-success" href="archivos.php">Ver archivos pdf</a>
             </div>
 
             <br>
 
             <div>
-                <a class="btn btn-warning" href="Sesiones.php">Asignar Sesiones</a>
-            </div>
-
-            <br>
-
-            <div>
-                <a class="btn btn-warning" href="controlador/controlador_cerrar_sesion.php">Salir</a>
+                <a class="btn btn-success" href="AsignarSesiones.php">Asignar Sesiones</a>
             </div>
 
         </div>

@@ -1,3 +1,30 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "amordown";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT codigobeneficiario FROM beneficiario ORDER BY id DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        $codigo = $row["codigobeneficiario"];
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +34,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -128,6 +157,14 @@
 
 <body class="container text-center my-background">
     <form method="post" action="" enctype="multipart/form-data">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Cod. Beneficiario: <span id="codigo"><?php echo $codigo; ?></span></a>
+                </div>
+            </div>
+        </nav>
 
         <section class="Section-P1"> <!--Datos Generales-->
             <br>
@@ -330,7 +367,7 @@
 
         <section class="Section-Files"> <!--Subir Archivo-->
             <div>
-                <h1> Selecciona el archivo PDF:</h1>
+                <h1> Selecciona el archivo PDF</h1>
                 <div class="div-data">
                     <p for="fileToUpload">Selecciona el archivo PDF:</p>
                     <input class="btn btn-primary" type="file" id="fileToUpload" name="fileToUpload"><br><br>
@@ -349,20 +386,20 @@
         <input class="btn btn-primary" type="submit" value="Guardar Datos" name="submit">
 
         <div>
-        <?php
-        include("IngresarDatosFI/datosbeneficiario.php");
-        include("IngresarDatosFI/datosencargado.php");
-        include("IngresarDatosFI/datoshistorialclinico.php");
-        include("IngresarDatosFI/datosperinatales.php");
-        include("IngresarDatosFI/datospostnatales.php");
-        include("IngresarDatosFI/datosprenatales.php");
-        include("IngresarDatosFI/datosreferencia.php");
-        include("controlador/controlador Subir archivos.php");
-        ?>
+            <?php
+            include("IngresarDatosFI/datosbeneficiario.php");
+            include("IngresarDatosFI/datosencargado.php");
+            include("IngresarDatosFI/datoshistorialclinico.php");
+            include("IngresarDatosFI/datosperinatales.php");
+            include("IngresarDatosFI/datospostnatales.php");
+            include("IngresarDatosFI/datosprenatales.php");
+            include("IngresarDatosFI/datosreferencia.php");
+            include("controlador/controlador Subir archivos.php");
+            ?>
         </div>
 
         <div>
-            <br><a class="btn btn-warning" href="inicio.php">Inicio</a>
+            <br><a class="btn btn-success" href="inicio.php">Inicio</a>
         </div>
 
     </form>
@@ -375,6 +412,14 @@
                 $(this).nextAll("div.div-data:first").slideToggle();
             });
         });
+    </script>
+
+    <script>
+        setInterval(function() {
+            $.get('get_codigo.php', function(data) {
+                $('#codigo').text(data);
+            });
+        }, 2500); // Actualiza el código cada 5 segundos
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
