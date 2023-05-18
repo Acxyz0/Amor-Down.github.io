@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-               .my-background {
+        .my-background {
             background-color: floralwhite;
             background-size: 100% auto;
         }
@@ -23,10 +23,10 @@
     <label for="codigoBeneficiario">Código del beneficiario:</label>
     <input type="text" id="codigoBeneficiario" name="codigoBeneficiario">
     <button onclick="mostrarArchivos()">Mostrar archivos</button>
-    
+
     <br>
     <br>
-    <div class="btn btn-warning"  id="listaArchivos"></div>
+    <div class="btn btn-warning" id="listaArchivos"></div>
 
     <br>
     <br>

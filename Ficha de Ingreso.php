@@ -1,4 +1,6 @@
 <?php
+
+// Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -157,14 +159,15 @@ $conn->close();
 
 <body class="container text-center my-background">
     <form method="post" action="" enctype="multipart/form-data">
-
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Cod. Beneficiario: <span id="codigo"><?php echo $codigo; ?></span></a>
+        <header>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Cod. Beneficiario: <span id="codigo"><?php echo $codigo; ?></span></a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <section class="Section-P1"> <!--Datos Generales-->
             <br>
@@ -419,7 +422,7 @@ $conn->close();
             $.get('get_codigo.php', function(data) {
                 $('#codigo').text(data);
             });
-        }, 2500); // Actualiza el código cada 5 segundos
+        }, 500); // Actualiza el código cada medio segundo
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

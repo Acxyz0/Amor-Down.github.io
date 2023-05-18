@@ -1,11 +1,18 @@
 <?php
-$mysqli = mysqli_init();
-$mysqli->ssl_set(NULL, NULL, "/etc/ssl/certs/ca-certificates.crt", NULL, NULL);
-$mysqli->real_connect($_ENV["HOST"], $_ENV["USERNAME"], $_ENV["PASSWORD"], $_ENV["DATABASE"]);
+    // Conexión a la base de datos
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "amordown";
 
-
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Verificar conexión
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
 $sql = "SELECT codigo FROM beneficiarios ORDER BY id DESC LIMIT 1";
-$result = $mysqli->query($sql);
+$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -15,5 +22,4 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-$mysqli->close();
-?>
+$conn->close();
