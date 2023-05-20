@@ -61,7 +61,7 @@
             <br>
 
             <div>
-                <a class="btn btn-success" href="AsignarSesiones.php">Asignar Sesiones</a>
+                <a class="btn btn-success" href="Sesiones.p hp">Asignar Sesiones</a>
             </div>
 
         </div>
