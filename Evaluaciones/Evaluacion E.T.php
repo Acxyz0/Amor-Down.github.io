@@ -17,9 +17,14 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <form action="">
+        <form method="post" action="procesar_formularioET.php">
             <!-- Encabezado -->
             <div class="container-fluid">
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Codigo del beneficiario</span>
+                    <input type="text" name="codigopaciente" id="name" class="form-control">
+                </div>
                 <br>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Nombre del Paciente</span>
@@ -69,38 +74,38 @@
                         <th class="col-2" scope="row">Percepción Visual</th>
                         <td class="col-3">Sigue objetos con la vista</td>
                         <td class="col-5"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row">Percepción Visual</th>
                         <td class="col-3">Responde al seguimiento visual con objetos</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row">Percepción Tactil</th>
                         <td class="col-3">Acepta todas las texturas</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr class="d-flex">
                         <th class="col-2" scope="row">Percepción Tactil</th>
                         <td class="col-3">Explora los objetos con la mano</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr class="d-flex">
                         <th class="col-2" scope="row">Percepción Tactil</th>
                         <td class="col-3">Manipula objetos y texturas</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr>
@@ -131,76 +136,75 @@
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Apreta el dedo índice del examinador</td>
                         <td class="col-5"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Movimiento de cabeza en posición prona</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Mantiene la cabeza erguida al llevarlo en una posición sentada</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
-
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">En posición prona se levanta así mismo</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Camina agarrad@ a las paredes u objetos</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Gatea</td>
                         <td class="col-5"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Da vuelta</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Construye una torre con cubos</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Tiene agarre de pinza</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Tiene agarre de toda la mano</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                 </tbody>
             </table>
@@ -228,36 +232,36 @@
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Fija la mirada en el rostro del examinador</td>
                         <td class="col-5"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Hace mímicas en respuesta a estímulos que le agraden </td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Imita gestos</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Interactúa</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Ayuda en tareas simples</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                 </tbody>
@@ -286,47 +290,49 @@
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Balbucea</td>
                         <td class="col-5"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Dice al menos 3 palabras</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Vocaliza sonidos diferentes</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Nombra objetos</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Señala lo que desea</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
                     <tr class="d-flex">
                         <th class="col-2" scope="row"></th>
                         <td class="col-3">Forma frases completas</td>
                         <td class="col-5 text-center"><textarea class="form-control" rows="2"></textarea></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="si"></td>
-                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" value="no"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="si"></td>
+                        <td class="col-1 text-center"><input class="form-check-input" type="checkbox" name="opciones[]" value="no"></td>
                     </tr>
 
                 </tbody>
             </table>
+
+            <button type="submit" class="btn btn-primary">Siguiente</button>
 
         </form>
     </main>
