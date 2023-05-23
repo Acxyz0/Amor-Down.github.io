@@ -43,7 +43,7 @@
             <div>
                 <h1 class="text-center text-font: 20px titulo">
                     <b>
-                        Bienvenido
+                        BIENVENIDO
                     </b>
                 </h1>
             </div>
@@ -55,13 +55,25 @@
             <br>
 
             <div>
-                <a class="btn btn-success" href="archivos.php">Ver archivos pdf</a>
+                <a class="btn btn-success" href="archivos.php">Ver Archivos PDF</a>
             </div>
 
             <br>
 
             <div>
-                <a class="btn btn-success" href="Sesiones.p hp">Asignar Sesiones</a>
+                <a class="btn btn-success" href="Evaluaciones.php">Evaluaciones</a>
+            </div>
+
+            <br>
+
+            <div>
+                <a class="btn btn-success" href="Sesiones.php">Asignar Sesiones</a>
+            </div>
+
+            <br>
+
+            <div>
+                <a class="btn btn-success" href="versesiones.php">Ver Sesiones Asignadas</a>
             </div>
 
         </div>

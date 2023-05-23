@@ -60,6 +60,8 @@
       <br>
 
       <button type="button" id="obtener_servicio" class="btn btn-primary">Obtener Servicio</button>
+      <br>
+      <br>
 
       <div class="form-group">
         <label for="servicio">Servicio:</label>
@@ -101,6 +103,8 @@
       </table>
 
       <button type="submit" name="asignar" class="btn btn-primary">Asignar Sesión</button>
+        <a class="btn btn-success float-right" href="inicio.php">Inicio</a>
+
     </form>
   </div>
 

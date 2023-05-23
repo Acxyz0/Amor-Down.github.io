@@ -67,6 +67,13 @@
       </tbody>
     </table>
 
+    <br>
+    <br>
+
+    <div>
+      <a class="btn btn-success" href="inicio.php">Inicio</a>
+    </div>
+
   </div>
 
 </body>

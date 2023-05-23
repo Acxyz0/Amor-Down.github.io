@@ -17,7 +17,7 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <form method="post" action="">
+        <form method="post" action="procesar_formularioPRE_O.php">
 
             <br>
             <div class="input-group mb-3">
@@ -47,7 +47,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -112,7 +112,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -224,7 +224,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -320,7 +320,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -424,7 +424,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -496,7 +496,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -583,7 +583,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -687,7 +687,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -758,7 +758,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -806,7 +806,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -862,7 +862,7 @@
                         <th class="col-1 text-center" scope="col">#</th>
                         <th class="col-2 text-center" scope="col">Preguntas</th>
                         <th class="col-1 text-center" scope="col">Si</th>
-                        <th class="col-1 text-center" scope="col">Aveces</th>
+                        <th class="col-1 text-center" scope="col">A veces</th>
                         <th class="col-1 text-center" scope="col">No</th>
                         <th class="col-6 text-center" scope="col">Observaciones</th>
                     </tr>
@@ -932,10 +932,6 @@
                 <span class="input-group-text">Observaciones</span>
                 <textarea class="form-control" rows="10" id="comment" name="text"></textarea>
             </div>
-
-            <?php
-            include ("Evaluaciones/procesar_formularioPRE_O.php")
-            ?>
 
             <button type="submit" class="btn btn-primary">Siguiente</button>
         </form>

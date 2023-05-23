@@ -8,8 +8,8 @@
 
     <style>
         .my-background {
-            background-color: floralwhite;
-            background-size: 100% auto;
+            background-image: url(https://img.freepik.com/vector-premium/ilustracion-dia-mundial-sindrome-down_23-2148846171.jpg?w=740);
+            background-size: auto;
         }
     </style>
 
