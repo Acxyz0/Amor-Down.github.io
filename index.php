@@ -1,5 +1,9 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +22,17 @@
       height: 100vh;
     }
 
-    .login-container {
-      max-width: 400px;
+    .custom-login-container {
+      max-width: 350px; /* Ajusta este valor para cambiar el ancho del formulario */
       width: 100%;
+      margin: 0 auto;
       padding: 20px;
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .login-container h2 {
+    .custom-login-container h2 {
       text-align: center;
       margin-bottom: 20px;
     }
@@ -45,18 +50,24 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="login-container">
+  <?php
+  include "Conexion BD/conexion.php";
+  include "controlador/controlador_login.php";
+  ?>
+
+  <div class="custom-login-container">
     <h2>Iniciar Sesión</h2>
-    <form>
+    <form method="post" action="">
       <div class="form-group">
         <label for="username">Usuario:</label>
-        <input type="text" class="form-control" id="username" required>
+        <input type="text" class="form-control" id="usuario" name="usuario" required>
       </div>
       <div class="form-group">
         <label for="password">Contraseña:</label>
         <div class="input-group">
-          <input type="password" class="form-control" id="password" required>
+          <input type="password" class="form-control" id="password" name="password" required>
           <div class="input-group-append">
             <button class="btn btn-outline-secondary toggle-password" type="button" onclick="togglePasswordVisibility()">
               <i class="fas fa-eye"></i>
@@ -64,7 +75,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-login">Iniciar Sesión</button>
+      <button type="submit" class="btn btn-primary btn-login" name="btningresar" value="INICIAR SESION">Iniciar Sesión</button>
     </form>
   </div>
 
@@ -77,7 +88,7 @@
     function togglePasswordVisibility() {
       var passwordInput = document.getElementById("password");
       var toggleButton = document.querySelector(".toggle-password");
-      
+
       if (passwordInput.type === "password") {
         passwordInput.type = "text";
         toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
@@ -88,4 +99,5 @@
     }
   </script>
 </body>
+
 </html>

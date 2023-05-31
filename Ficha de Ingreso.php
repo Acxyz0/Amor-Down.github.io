@@ -398,6 +398,7 @@ $conn->close();
             include("IngresarDatosFI/datosprenatales.php");
             include("IngresarDatosFI/datosreferencia.php");
             include("controlador/controlador Subir archivos.php");
+            include("aumentarcBeneficiario.php");
             ?>
         </div>
 

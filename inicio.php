@@ -1,3 +1,15 @@
+<?php
+include "controlador/controlador_login.php";
+?>
+
+<?php
+// Verificar si el usuario tiene una sesión activa
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +47,8 @@
 
 <body class="container my-background">
     <br>
+    <h1>Bienvenido/a <?php echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"]; ?></h1>
+    <a href="controlador_cerrar_sesion.php">Cerrar sesión</a>
     <br>
     <br>
 
