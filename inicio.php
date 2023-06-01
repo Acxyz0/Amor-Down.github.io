@@ -21,18 +21,23 @@ if (!isset($_SESSION["id"])) {
     <style>
         .my-background {
             background-image: url(img/fondo.jpg);
-            background-size: 100% auto;
+            background-size: cover;
+            background-position: center;
         }
 
-        .mostrar_nombre {
-            font-size: 25px;
+        .welcome-container {
             display: flex;
-            float: left;
-            width: 250px !important;
-            height: 50px !important;
             justify-content: center;
             align-items: center;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
+        }
+
+        .welcome-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
         }
 
         .titulo {
@@ -47,8 +52,11 @@ if (!isset($_SESSION["id"])) {
 
 <body class="container my-background">
     <br>
-    <h1>Bienvenido/a <?php echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"]; ?></h1>
-    <a href="controlador_cerrar_sesion.php">Cerrar sesión</a>
+    <div class="welcome-container">
+        <h3 class="welcome-text">Bienvenido/a <?php echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"]; ?></h3>
+    </div>
+    <br>
+    <a class="btn btn-light" href="controlador_cerrar_sesion.php">Cerrar sesión</a>
     <br>
     <br>
 
