@@ -38,6 +38,7 @@ $conn->close();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
+        // Script para ocultar el campo de los datos del encargado
         document.addEventListener("DOMContentLoaded", function() {
             var madreCheckbox = document.getElementById("madre");
             var padreCheckbox = document.getElementById("padre");
@@ -72,6 +73,7 @@ $conn->close();
     </script>
 
     <script>
+        // Script para ocultar divs
         $(document).ready(function() {
             //Ocultar los textbox al inicio
 
@@ -500,7 +502,7 @@ $conn->close();
                     <h4>Antecedentes Pre-natales</h4>
 
                     <div>
-                        <p>¿Fue un embarazo de término?</p>
+                        <p>¿Fue un embarazo a término?</p>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="checkbox7" id="checkbox7-si" value="si">
                             <label class="form-check-label" for="checkbox7-si">Si</label>
@@ -659,15 +661,14 @@ $conn->close();
         <section class="Section-Files"> <!--Subir Archivo-->
             <div>
                 <h1> Selecciona el archivo PDF</h1>
-                <div class="div-data">
-                    <p for="fileToUpload">Selecciona el archivo PDF:</p>
-                    <input class="btn btn-primary" type="file" id="fileToUpload" name="fileToUpload"><br><br>
+                <div class="div-data col-md-6 mx-auto text-center">
+                    <label for="fileToUpload" class="form-label">Selecciona el archivo PDF:</label>
+                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
 
-                    <p for="descripcion">Descripción:</p>
-                    <input type="text" id="descripcion" name="descripcion"><br><br>
-
-
+                    <label for="descripcion" class="form-label">Descripción:</label>
+                    <input class="form-control" type="text" id="descripcion" name="descripcion">
                 </div>
+
             </div>
         </section>
 
@@ -763,6 +764,7 @@ $conn->close();
     </script>
 
     <script>
+        // Script para determinar el numero de hermanos
         function limitarLugarOcupa() {
             var numeroHermanos = parseInt(document.getElementById('numeroH').value);
             var lugarOcupa = document.getElementById('numeroOH');
@@ -776,6 +778,7 @@ $conn->close();
     </script>
 
     <script>
+        // Script para traer datos del mismo beneficiario si es el mismo quien se esta inscribiendo
         const mismoCheckbox = document.getElementById('mismo');
         const encargadoFields = document.getElementsByClassName('encargado-field');
         const escolaridadSelect = document.getElementById('escolaridadE-container');
@@ -813,6 +816,34 @@ $conn->close();
             }
         });
     </script>
+
+<script>
+    const checkboxes1 = document.querySelectorAll('input[name="checkbox1"]');
+    checkboxes1.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes1.forEach(otherCheckbox => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+
+    const checkboxes2 = document.querySelectorAll('input[name="checkbox2"]');
+    checkboxes2.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes2.forEach(otherCheckbox => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 

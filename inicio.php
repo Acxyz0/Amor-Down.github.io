@@ -23,6 +23,7 @@ if (!isset($_SESSION["id"])) {
             background-image: url(img/fondo.jpg);
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
         }
 
         .welcome-container {
@@ -42,6 +43,7 @@ if (!isset($_SESSION["id"])) {
 
         .titulo {
             font-size: 80px;
+            text-align: center;
         }
     </style>
 
@@ -50,57 +52,33 @@ if (!isset($_SESSION["id"])) {
     <title>Inicio</title>
 </head>
 
-<body class="container my-background">
-    <br>
-    <div class="welcome-container">
-        <h3 class="welcome-text">Bienvenido/a <?php echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"]; ?></h3>
-    </div>
-    <br>
-    <a class="btn btn-light" href="controlador_cerrar_sesion.php">Cerrar sesión</a>
-    <br>
-    <br>
-
-    <section>
-        <div>
-            <div>
-                <h1 class="text-center text-font: 20px titulo">
-                    <b>
-                        BIENVENIDO
-                    </b>
-                </h1>
-            </div>
-
-            <div>
-                <a class="btn btn-success" href="Ficha de Ingreso.php">Ficha de Ingreso</a>
-            </div>
-
-            <br>
-
-            <div>
-                <a class="btn btn-success" href="archivos.php">Ver Archivos PDF</a>
-            </div>
-
-            <br>
-
-            <div>
-                <a class="btn btn-success" href="Evaluaciones.php">Evaluaciones</a>
-            </div>
-
-            <br>
-
-            <div>
-                <a class="btn btn-success" href="Sesiones.php">Asignar Sesiones</a>
-            </div>
-
-            <br>
-
-            <div>
-                <a class="btn btn-success" href="versesiones.php">Ver Sesiones Asignadas</a>
-            </div>
-
+<body class="my-background">
+    <div class="container py-5">
+        <div class="welcome-container">
+            <h3 class="welcome-text">Bienvenido/a <?php echo $_SESSION["nombres"] . " " . $_SESSION["apellidos"]; ?></h3>
         </div>
-
-    </section>
+        <div class="mt-4 text-center">
+            <a class="btn btn-light" href="controlador_cerrar_sesion.php">Cerrar sesión</a>
+        </div>
+        <div class="mt-4">
+            <h1 class="titulo">BIENVENIDO</h1>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="Ficha de Ingreso.php">Ficha de Ingreso</a>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="archivos.php">Ver Archivos PDF</a>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="Evaluaciones.php">Evaluaciones</a>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="Sesiones.php">Asignar Sesiones</a>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="versesiones.php">Ver Sesiones Asignadas</a>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
