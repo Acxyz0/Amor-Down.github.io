@@ -21,8 +21,6 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $codigo = $row["codigobeneficiario"];
     }
-} else {
-    echo "0 results";
 }
 $conn->close();
 ?>
@@ -41,37 +39,36 @@ $conn->close();
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-  var madreCheckbox = document.getElementById("madre");
-  var padreCheckbox = document.getElementById("padre");
-  var encargadoCheckbox = document.getElementById("encargado");
-  var mismoCheckbox = document.getElementById("mismo");
-  var encargadoFields = document.getElementsByClassName("encargado-field");
+            var madreCheckbox = document.getElementById("madre");
+            var padreCheckbox = document.getElementById("padre");
+            var encargadoCheckbox = document.getElementById("encargado");
+            var mismoCheckbox = document.getElementById("mismo");
+            var encargadoFields = document.getElementsByClassName("encargado-field");
 
-  toggleEncargadoFields(); // Ocultar los campos al cargar la página
+            toggleEncargadoFields(); // Ocultar los campos al cargar la página
 
-  madreCheckbox.addEventListener("change", toggleEncargadoFields);
-  padreCheckbox.addEventListener("change", toggleEncargadoFields);
-  encargadoCheckbox.addEventListener("change", toggleEncargadoFields);
-  mismoCheckbox.addEventListener("change", toggleEncargadoFields);
+            madreCheckbox.addEventListener("change", toggleEncargadoFields);
+            padreCheckbox.addEventListener("change", toggleEncargadoFields);
+            encargadoCheckbox.addEventListener("change", toggleEncargadoFields);
+            mismoCheckbox.addEventListener("change", toggleEncargadoFields);
 
-  function toggleEncargadoFields() {
-    var isCheckedMadre = madreCheckbox.checked;
-    var isCheckedPadre = padreCheckbox.checked;
-    var isCheckedEncargado = encargadoCheckbox.checked;
-    var isCheckedMismo = mismoCheckbox.checked;
+            function toggleEncargadoFields() {
+                var isCheckedMadre = madreCheckbox.checked;
+                var isCheckedPadre = padreCheckbox.checked;
+                var isCheckedEncargado = encargadoCheckbox.checked;
+                var isCheckedMismo = mismoCheckbox.checked;
 
-    if (isCheckedMadre || isCheckedPadre || isCheckedEncargado || isCheckedMismo) {
-      for (var i = 0; i < encargadoFields.length; i++) {
-        encargadoFields[i].style.display = "block";
-      }
-    } else {
-      for (var i = 0; i < encargadoFields.length; i++) {
-        encargadoFields[i].style.display = "none";
-      }
-    }
-  }
-});
-
+                if (isCheckedMadre || isCheckedPadre || isCheckedEncargado || isCheckedMismo) {
+                    for (var i = 0; i < encargadoFields.length; i++) {
+                        encargadoFields[i].style.display = "block";
+                    }
+                } else {
+                    for (var i = 0; i < encargadoFields.length; i++) {
+                        encargadoFields[i].style.display = "none";
+                    }
+                }
+            }
+        });
     </script>
 
     <script>
@@ -164,6 +161,11 @@ $conn->close();
     </script>
 
     <style>
+        p {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
         .div-data {
             display: none;
         }
@@ -298,7 +300,14 @@ $conn->close();
 
                                 <div class="form-group">
                                     <label for="escolaridad">Escolaridad</label>
-                                    <input type="text" class="form-control" name="escolaridad" id="escolaridad">
+                                    <select class="form-control" name="escolaridad" id="escolaridad">
+                                        <option value="0"></option>
+                                        <option value="1">No aplica</option>
+                                        <option value="2">Pre-Primaria</option>
+                                        <option value="3">Primaria</option>
+                                        <option value="4">Básico</option>
+                                        <option value="5">Diversificado</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
@@ -321,18 +330,41 @@ $conn->close();
                                     <input type="number" class="form-control" name="numeroOH" id="numeroOH" min="0">
                                 </div>
 
-                                <div>
-                                    <input type="checkbox" name="madre" id="madre"> Madre
-                                    <input type="checkbox" name="padre" id="padre"> Padre
-                                    <input type="checkbox" name="encargado" id="encargado"> Encargado
-                                    <input type="checkbox" name="mismo" id="mismo"> El mismo
+                                <h4 id="encargado-heading">Datos del Encargado</h4>
+                                <br>
 
-                                    <h4 id="encargado-heading">Datos del Encargado</h4>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="madre" id="madre">
+                                        <label class="form-check-label" for="madre">Madre</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="padre" id="padre">
+                                        <label class="form-check-label" for="padre">Padre</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="encargado" id="encargado">
+                                        <label class="form-check-label" for="encargado">Encargado</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="mismo" id="mismo">
+                                        <label class="form-check-label" for="mismo">El mismo</label>
+                                    </div>
+
+                                    <br>
                                     <br>
 
                                     <div class="form-group encargado-field" id="nombreE-container">
                                         <label for="nombreE">Nombre</label>
                                         <input type="text" class="form-control" name="nombreE" id="nombreE">
+                                    </div>
+
+                                    <div class="form-group encargado-field" id="apellidosE-container">
+                                        <label for="apellidosE">Apellidos</label>
+                                        <input type="text" class="form-control" name="apellidosE" id="apellidosE">
                                     </div>
 
                                     <div class="form-group encargado-field" id="edadE-container">
@@ -342,7 +374,15 @@ $conn->close();
 
                                     <div class="form-group encargado-field" id="escolaridadE-container">
                                         <label for="escolaridadE">Escolaridad</label>
-                                        <input type="text" class="form-control" name="escolaridadE" id="escolaridadE">
+                                        <select class="form-control" name="escolaridadE" id="escolaridadE">
+                                            <option value=""></option>
+                                            <option value="No aplica">No aplica</option>
+                                            <option value="Pre-Primaria">Pre-Primaria</option>
+                                            <option value="Primaria">Primaria</option>
+                                            <option value="Básico">Básico</option>
+                                            <option value="Diversificado">Diversificado</option>
+                                            <option value="Universitario">Universitario</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group encargado-field" id="ocupacionE-container">
@@ -382,31 +422,67 @@ $conn->close();
                         <input type="text" name="medicamentos" id="">
 
                         <p>¿Tiene esquema completo de vacunas?</p>
-                        <input type="checkbox" name="checkbox1" id="">Si
-                        <input type="checkbox" name="checkbox1" id="">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox1" id="checkbox1-si" value="si">
+                            <label class="form-check-label" for="checkbox1-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox1" id="checkbox1-no" value="no">
+                            <label class="form-check-label" for="checkbox1-no">No</label>
+                        </div>
 
                         <p>¿Le han realizado pruebas auditivas?</p>
-                        <input type="checkbox" name="checkbox2" id="">Si
-                        <input type="checkbox" name="checkbox2" id="">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox2" id="checkbox2-si" value="si">
+                            <label class="form-check-label" for="checkbox2-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox2" id="checkbox2-no" value="no">
+                            <label class="form-check-label" for="checkbox2-no">No</label>
+                        </div>
 
                         <p>¿Le han realizado pruebas oftalmológicas?</p>
-                        <input type="checkbox" name="checkbox3" id="">Si
-                        <input type="checkbox" name="checkbox3" id="">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox3" id="checkbox3-si" value="si">
+                            <label class="form-check-label" for="checkbox3-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox3" id="checkbox3-no" value="no">
+                            <label class="form-check-label" for="checkbox3-no">No</label>
+                        </div>
 
                         <p>¿Utiliza aparatos auditivos?</p>
-                        <input type="checkbox" name="checkbox4" id="">Si
-                        <input type="checkbox" name="checkbox4" id="">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox4" id="checkbox4-si" value="si">
+                            <label class="form-check-label" for="checkbox4-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox4" id="checkbox4-no" value="no">
+                            <label class="form-check-label" for="checkbox4-no">No</label>
+                        </div>
 
                         <p>¿Utiliza lentes?</p>
-                        <input type="checkbox" name="checkbox5" id="">Si
-                        <input type="checkbox" name="checkbox5" id="">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox5" id="checkbox5-si" value="si">
+                            <label class="form-check-label" for="checkbox5-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox5" id="checkbox5-no" value="no">
+                            <label class="form-check-label" for="checkbox5-no">No</label>
+                        </div>
 
                         <p>Otras</p>
                         <input type="text" name="otras" id="">
 
                         <p>¿Le han realizado cirugias?</p>
-                        <input type="checkbox" name="checkbox6" id="" value="si">Si
-                        <input type="checkbox" name="checkbox6" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox6" id="checkbox6-si" value="si">
+                            <label class="form-check-label" for="checkbox6-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox6" id="checkbox6-no" value="no">
+                            <label class="form-check-label" for="checkbox6-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="definacirugias" id="textbox6">
 
@@ -424,84 +500,157 @@ $conn->close();
                     <h4>Antecedentes Pre-natales</h4>
 
                     <div>
-
-                        <p>¿Fue un embarazo de termino?</p>
-                        <input type="checkbox" name="checkbox7" id="" value="si">Si
-                        <input type="checkbox" name="checkbox7" id="" value="no">No
+                        <p>¿Fue un embarazo de término?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox7" id="checkbox7-si" value="si">
+                            <label class="form-check-label" for="checkbox7-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox7" id="checkbox7-no" value="no">
+                            <label class="form-check-label" for="checkbox7-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="embarazotermino" id="textbox7">
 
                         <p>¿Fue un parto normal?</p>
-                        <input type="checkbox" name="checkbox8" id="" value="si">Si
-                        <input type="checkbox" name="checkbox8" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox8" id="checkbox8-si" value="si">
+                            <label class="form-check-label" for="checkbox8-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox8" id="checkbox8-no" value="no">
+                            <label class="form-check-label" for="checkbox8-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="partonormal" id="textbox8">
 
                         <p>¿Tuvo complicaciones durante el embarazo?</p>
-                        <input type="checkbox" name="checkbox9" id="" value="si">Si
-                        <input type="checkbox" name="checkbox9" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox9" id="checkbox9-si" value="si">
+                            <label class="form-check-label" for="checkbox9-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox9" id="checkbox9-no" value="no">
+                            <label class="form-check-label" for="checkbox9-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="complicacionesembarazo" id="textbox9">
-
                     </div>
 
                     <h4>Antecedentes Peri-natales</h4>
 
                     <div>
-
-                        <p>¿El niño lloro inmediatamente?</p>
-                        <input type="checkbox" name="checkbox10" id="" value="si">Si
-                        <input type="checkbox" name="checkbox10" id="" value="no">No
+                        <p>¿El niño lloró inmediatamente?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox10" id="checkbox10-si" value="si">
+                            <label class="form-check-label" for="checkbox10-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox10" id="checkbox10-no" value="no">
+                            <label class="form-check-label" for="checkbox10-no">No</label>
+                        </div>
 
                         <p>¿Su coloración fue normal?</p>
-                        <input type="checkbox" name="checkbox11" id="" value="si">Si
-                        <input type="checkbox" name="checkbox11" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox11" id="checkbox11-si" value="si">
+                            <label class="form-check-label" for="checkbox11-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox11" id="checkbox11-no" value="no">
+                            <label class="form-check-label" for="checkbox11-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="coloracionN" id="textbox11">
 
                         <p>¿Estuvo en incubadora?</p>
-                        <input type="checkbox" name="checkbox12" id="" value="si">Si
-                        <input type="checkbox" name="checkbox12" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox12" id="checkbox12-si" value="si">
+                            <label class="form-check-label" for="checkbox12-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox12" id="checkbox12-no" value="no">
+                            <label class="form-check-label" for="checkbox12-no">No</label>
+                        </div>
                         <p>Cuanto tiempo</p>
                         <input type="text" name="incubadora" id="textbox12">
 
                         <p>¿Nació amarillo o morado?</p>
-                        <input type="checkbox" name="checkbox13" id="" value="si">Si
-                        <input type="checkbox" name="checkbox13" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox13" id="checkbox13-si" value="si">
+                            <label class="form-check-label" for="checkbox13-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox13" id="checkbox13-no" value="no">
+                            <label class="form-check-label" for="checkbox13-no">No</label>
+                        </div>
                         <p>Defina</p>
                         <input type="text" name="nacio_AM" id="textbox13">
-
                     </div>
 
-                    <h4>Antecedentes Post-natales </h4>
+                    <h4>Antecedentes Post-natales</h4>
 
                     <div>
-
                         <p>¿Tuvo tratamiento después del parto?</p>
-                        <input type="checkbox" name="checkbox14" id="" value="si">Si
-                        <input type="checkbox" name="checkbox14" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox14" id="checkbox14-si" value="si">
+                            <label class="form-check-label" for="checkbox14-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox14" id="checkbox14-no" value="no">
+                            <label class="form-check-label" for="checkbox14-no">No</label>
+                        </div>
 
-                        <p>¿Tuvo algun tipo de infección?</p>
-                        <input type="checkbox" name="checkbox15" id="" value="si">Si
-                        <input type="checkbox" name="checkbox15" id="" value="no">No
+                        <p>¿Tuvo algún tipo de infección?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox15" id="checkbox15-si" value="si">
+                            <label class="form-check-label" for="checkbox15-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox15" id="checkbox15-no" value="no">
+                            <label class="form-check-label" for="checkbox15-no">No</label>
+                        </div>
 
                         <p>¿Tuvo fiebres?</p>
-                        <input type="checkbox" name="checkbox16" id="" value="si">Si
-                        <input type="checkbox" name="checkbox16" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox16" id="checkbox16-si" value="si">
+                            <label class="form-check-label" for="checkbox16-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox16" id="checkbox16-no" value="no">
+                            <label class="form-check-label" for="checkbox16-no">No</label>
+                        </div>
 
-                        <p>¿Tuvo convulciones?</p>
-                        <input type="checkbox" name="checkbox17" id="" value="si">Si
-                        <input type="checkbox" name="checkbox17" id="" value="no">No
+                        <p>¿Tuvo convulsiones?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox17" id="checkbox17-si" value="si">
+                            <label class="form-check-label" for="checkbox17-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox17" id="checkbox17-no" value="no">
+                            <label class="form-check-label" for="checkbox17-no">No</label>
+                        </div>
 
                         <p>¿El paciente tiene lenguaje?</p>
-                        <input type="checkbox" name="checkbox18" id="" value="si">Si
-                        <input type="checkbox" name="checkbox18" id="" value="no">No
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox18" id="checkbox18-si" value="si">
+                            <label class="form-check-label" for="checkbox18-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox18" id="checkbox18-no" value="no">
+                            <label class="form-check-label" for="checkbox18-no">No</label>
+                        </div>
 
                         <p>¿El paciente camina?</p>
-                        <input type="checkbox" name="checkbox19" id="" value="si">Si
-                        <input type="checkbox" name="checkbox19" id="" value="no">No
-
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox19" id="checkbox19-si" value="si">
+                            <label class="form-check-label" for="checkbox19-si">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="checkbox19" id="checkbox19-no" value="no">
+                            <label class="form-check-label" for="checkbox19-no">No</label>
+                        </div>
                     </div>
+
 
                 </div>
             </div>
@@ -624,6 +773,45 @@ $conn->close();
 
             lugarOcupa.max = numeroHermanos;
         }
+    </script>
+
+    <script>
+        const mismoCheckbox = document.getElementById('mismo');
+        const encargadoFields = document.getElementsByClassName('encargado-field');
+        const escolaridadSelect = document.getElementById('escolaridadE-container');
+        const escolaridadInput = document.getElementById('escolaridadE');
+
+        mismoCheckbox.addEventListener('change', function() {
+            for (let i = 0; i < encargadoFields.length; i++) {
+                encargadoFields[i].style.display = this.checked ? 'block' : 'none';
+            }
+
+            if (this.checked) {
+                document.getElementById('nombreE').value = document.getElementById('nombres').value;
+                document.getElementById('apellidosE').value = document.getElementById('apellidos').value;
+                document.getElementById('edadE').value = document.getElementById('edad').value;
+
+                const escolaridadBeneficiario = document.getElementById('escolaridad').value;
+                if (escolaridadBeneficiario === '1') {
+                    escolaridadInput.value = 'No aplica';
+                } else if (escolaridadBeneficiario === '2') {
+                    escolaridadInput.value = 'Pre-Primaria';
+                } else if (escolaridadBeneficiario === '3') {
+                    escolaridadInput.value = 'Primaria';
+                } else if (escolaridadBeneficiario === '4') {
+                    escolaridadInput.value = 'Básico';
+                } else if (escolaridadBeneficiario === '5') {
+                    escolaridadInput.value = 'Diversificado';
+                } else {
+                    escolaridadInput.value = '';
+                }
+            } else {
+                document.getElementById('nombreE').value = '';
+                document.getElementById('apellidosE').value = '';
+                document.getElementById('edadE').value = '';
+                escolaridadInput.value = '';
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

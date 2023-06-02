@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     $ultimoCodigo = $row["codigobeneficiario"];
     $nuevoCodigo = incrementarCodigo($ultimoCodigo);
 } else {
-    $nuevoCodigo = "coad-0001"; // Código predeterminado si no hay registros en la base de datos
+    $nuevoCodigo = "coat-0001"; // Código predeterminado si no hay registros en la base de datos
 }
 
 // Incrementar el código en 1
