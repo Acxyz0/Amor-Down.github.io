@@ -40,6 +40,41 @@ $conn->close();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  var madreCheckbox = document.getElementById("madre");
+  var padreCheckbox = document.getElementById("padre");
+  var encargadoCheckbox = document.getElementById("encargado");
+  var mismoCheckbox = document.getElementById("mismo");
+  var encargadoFields = document.getElementsByClassName("encargado-field");
+
+  toggleEncargadoFields(); // Ocultar los campos al cargar la página
+
+  madreCheckbox.addEventListener("change", toggleEncargadoFields);
+  padreCheckbox.addEventListener("change", toggleEncargadoFields);
+  encargadoCheckbox.addEventListener("change", toggleEncargadoFields);
+  mismoCheckbox.addEventListener("change", toggleEncargadoFields);
+
+  function toggleEncargadoFields() {
+    var isCheckedMadre = madreCheckbox.checked;
+    var isCheckedPadre = padreCheckbox.checked;
+    var isCheckedEncargado = encargadoCheckbox.checked;
+    var isCheckedMismo = mismoCheckbox.checked;
+
+    if (isCheckedMadre || isCheckedPadre || isCheckedEncargado || isCheckedMismo) {
+      for (var i = 0; i < encargadoFields.length; i++) {
+        encargadoFields[i].style.display = "block";
+      }
+    } else {
+      for (var i = 0; i < encargadoFields.length; i++) {
+        encargadoFields[i].style.display = "none";
+      }
+    }
+  }
+});
+
+    </script>
+
+    <script>
         $(document).ready(function() {
             //Ocultar los textbox al inicio
 
@@ -150,6 +185,62 @@ $conn->close();
             background-color: rgb(145, 221, 225);
             border-radius: 15px;
         }
+
+        .dropdown-container {
+            width: 300px;
+            /* Ajusta el ancho según tus necesidades */
+        }
+
+        .dropdown-container select {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .my-container {
+            padding-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"] {
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="tel"]:focus {
+            border-color: #4caf50;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+
+        .btn-submit {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .encargado-field {
+            display: none;
+        }
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -177,54 +268,102 @@ $conn->close();
 
                     <h4>Datos del Beneficiario</h4>
 
-                    <div>
+                    <div class="my-container py-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nombres">Nombres</label>
+                                    <input type="text" class="form-control" name="nombres" id="nombres">
+                                </div>
 
-                        <p>Nombres</p>
-                        <input type="text" name="nombres" id="nombres">
+                                <div class="form-group">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" class="form-control" name="apellidos" id="apellidos">
+                                </div>
 
-                        <p>Apellidos</p>
-                        <input type="text" name="apellidos" id="">
+                                <div class="form-group">
+                                    <label for="fechaN">Fecha de nacimiento</label>
+                                    <input type="date" class="form-control" name="fechaN" id="fechaN">
+                                </div>
 
-                        <p>Fecha de nacimiento</p>
-                        <input type="text" name="fechaN" id="">
+                                <div class="form-group">
+                                    <label for="edad">Edad</label>
+                                    <input type="text" class="form-control" name="edad" id="edad" readonly>
+                                </div>
 
-                        <p>Escolaridad</p>
-                        <input type="text" name="escolaridad" id="">
+                                <div class="form-group">
+                                    <label for="mayorMenor">¿Es mayor o menor de edad?</label>
+                                    <input type="text" class="form-control" name="mayorMenor" id="mayorMenor" readonly>
+                                </div>
 
-                        <p>Fecha de Ingreso</p>
-                        <input type="text" name="fechaI" id="">
+                                <div class="form-group">
+                                    <label for="escolaridad">Escolaridad</label>
+                                    <input type="text" class="form-control" name="escolaridad" id="escolaridad">
+                                </div>
 
-                        <p>Dirección</p>
-                        <input type="text" name="direccion" id="">
+                                <div class="form-group">
+                                    <label for="fechaI">Fecha de Ingreso</label>
+                                    <input type="date" class="form-control" name="fechaI" id="fechaI">
+                                </div>
 
-                        <p>Número de Hermanos</p>
-                        <input type="text" name="numeroH" id="">
+                                <div class="form-group">
+                                    <label for="direccion">Dirección</label>
+                                    <input type="text" class="form-control" name="direccion" id="direccion">
+                                </div>
 
-                        <p>Lugar que ocupa</p>
-                        <input type="text" name="numeroOH" id="">
+                                <div class="form-group">
+                                    <label for="numeroH">Número de Hermanos</label>
+                                    <input type="number" class="form-control" name="numeroH" id="numeroH" min="0" onchange="limitarLugarOcupa()">
+                                </div>
 
-                        <h4>Datos del Encargado</h4>
+                                <div class="form-group">
+                                    <label for="numeroOH">Lugar que ocupa</label>
+                                    <input type="number" class="form-control" name="numeroOH" id="numeroOH" min="0">
+                                </div>
 
-                        <p>Nombre</p>
-                        <input type="text" name="nombreE" id="">
+                                <div>
+                                    <input type="checkbox" name="madre" id="madre"> Madre
+                                    <input type="checkbox" name="padre" id="padre"> Padre
+                                    <input type="checkbox" name="encargado" id="encargado"> Encargado
+                                    <input type="checkbox" name="mismo" id="mismo"> El mismo
 
-                        <p>Edad</p>
-                        <input type="text" name="edadE" id="">
+                                    <h4 id="encargado-heading">Datos del Encargado</h4>
+                                    <br>
 
-                        <p>Escolaridad</p>
-                        <input type="text" name="escolaridadE" id="">
+                                    <div class="form-group encargado-field" id="nombreE-container">
+                                        <label for="nombreE">Nombre</label>
+                                        <input type="text" class="form-control" name="nombreE" id="nombreE">
+                                    </div>
 
-                        <p>Ocupación</p>
-                        <input type="text" name="ocupacionE" id="">
+                                    <div class="form-group encargado-field" id="edadE-container">
+                                        <label for="edadE">Edad</label>
+                                        <input type="text" class="form-control" name="edadE" id="edadE">
+                                    </div>
 
-                        <p>Teléfono</p>
-                        <input type="tel" name="telefonoE" id="">
+                                    <div class="form-group encargado-field" id="escolaridadE-container">
+                                        <label for="escolaridadE">Escolaridad</label>
+                                        <input type="text" class="form-control" name="escolaridadE" id="escolaridadE">
+                                    </div>
 
-                        <p>Motivo de Consulta/Quién Refiere</p>
-                        <input type="text" name="motivo" id="">
+                                    <div class="form-group encargado-field" id="ocupacionE-container">
+                                        <label for="ocupacionE">Ocupación</label>
+                                        <input type="text" class="form-control" name="ocupacionE" id="ocupacionE">
+                                    </div>
 
+                                    <div class="form-group encargado-field" id="telefonoE-container">
+                                        <label for="telefonoE">Teléfono</label>
+                                        <input type="tel" class="form-control" name="telefonoE" id="telefonoE">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="motivo">Motivo de Consulta/Quién Refiere</label>
+                                    <input type="text" class="form-control" name="motivo" id="motivo" value="Centro de Salud">
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -383,11 +522,6 @@ $conn->close();
             </div>
         </section>
 
-        <p for="codigoBeneficiario">Código del beneficiario:</p>
-        <input type="text" id="codigoBeneficiario" name="codigoBeneficiario"><br><br>
-
-        <input class="btn btn-primary" type="submit" value="Guardar Datos" name="submit">
-
         <div>
             <?php
             include("IngresarDatosFI/datosbeneficiario.php");
@@ -401,6 +535,8 @@ $conn->close();
             include("aumentarcBeneficiario.php");
             ?>
         </div>
+
+        <input class="btn btn-primary" type="submit" value="Guardar Datos" name="submit">
 
         <div>
             <br><a class="btn btn-success" href="inicio.php">Inicio</a>
@@ -424,6 +560,70 @@ $conn->close();
                 $('#codigo').text(data);
             });
         }, 500); // Actualiza el código cada medio segundo
+    </script>
+
+    <script>
+        // Calcular edad basada en la fecha de nacimiento
+        document.getElementById('fechaN').addEventListener('input', function() {
+            var fechaNacimiento = new Date(this.value);
+            var hoy = new Date();
+
+            if (fechaNacimiento > hoy) {
+                document.getElementById('edad').value = "";
+                document.getElementById('mayorMenor').value = "";
+                return;
+            }
+
+            var edadAnios = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            var edadMeses = hoy.getMonth() - fechaNacimiento.getMonth();
+            var edadDias = hoy.getDate() - fechaNacimiento.getDate();
+
+            if (edadMeses < 0 || (edadMeses === 0 && edadDias < 0)) {
+                edadAnios--;
+                edadMeses += 12;
+            }
+
+            if (edadDias < 0) {
+                var ultimoDiaMesAnterior = new Date(hoy.getFullYear(), hoy.getMonth(), 0).getDate();
+                edadDias = ultimoDiaMesAnterior - fechaNacimiento.getDate() + hoy.getDate();
+                edadMeses--;
+            }
+
+            var edadTexto = "";
+
+            if (edadAnios > 0) {
+                edadTexto += edadAnios + (edadAnios === 1 ? " año" : " años");
+            }
+
+            if (edadMeses > 0) {
+                edadTexto += (edadTexto !== "" ? ", " : "") + edadMeses + (edadMeses === 1 ? " mes" : " meses");
+            }
+
+            if (edadDias > 0) {
+                edadTexto += (edadTexto !== "" ? ", " : "") + edadDias + (edadDias === 1 ? " día" : " días");
+            }
+
+            document.getElementById('edad').value = edadTexto || "";
+
+            if (edadAnios >= 18) {
+                document.getElementById('mayorMenor').value = 'Mayor de edad';
+            } else {
+                document.getElementById('mayorMenor').value = 'Menor de edad';
+            }
+        });
+    </script>
+
+    <script>
+        function limitarLugarOcupa() {
+            var numeroHermanos = parseInt(document.getElementById('numeroH').value);
+            var lugarOcupa = document.getElementById('numeroOH');
+
+            if (numeroHermanos < parseInt(lugarOcupa.value)) {
+                lugarOcupa.value = "";
+            }
+
+            lugarOcupa.max = numeroHermanos;
+        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
