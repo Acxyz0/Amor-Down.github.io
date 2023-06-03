@@ -15,16 +15,18 @@ if ($conn->connect_error) {
 if (!empty($_POST['submit'])) {
     if(empty($_POST['codigoBeneficiario']) or empty($_POST['nombreE']) or empty($_POST['edadE']) or empty($_POST['escolaridadE']) or empty($_POST['ocupacionE']) or empty($_POST['telefonoE'])) {
     } else {
+        $tipoencargado=$_POST['tipoencargado'];
         $codigobeneficiario = $_POST['codigoBeneficiario'];
         $nombreencargado = $_POST['nombreE'];
+        $fechanacimiento = $_POST['apellidosE'];
         $edadencargado = $_POST['edadE'];
         $escolaridadencargado = $_POST['escolaridadE'];
         $ocupacionencargado = $_POST['ocupacionE'];
         $telefonoencargado = $_POST['telefonoE'];
 
         //Insert numero 1
-        $sql1 = " INSERT INTO datosencargado (codigobeneficiario, nombre, edad, escolaridad, ocupacion, telefono) 
-VALUES ('$codigobeneficiario', '$nombreencargado', '$edadencargado', '$escolaridadencargado', '$ocupacionencargado', '$telefonoencargado')";
+        $sql1 = " INSERT INTO datosencargado (codigobeneficiario, tipoencargado, nombre, edad, escolaridad, ocupacion, telefono) 
+VALUES ('$codigobeneficiario', '$tipoencargado', '$nombreencargado', '$edadencargado', '$escolaridadencargado', '$ocupacionencargado', '$telefonoencargado')";
 
         if ($conn->query($sql1)===false) {
             echo "Error: " . $sql1 . "<br>" . $conn->error;

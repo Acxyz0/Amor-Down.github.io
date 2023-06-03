@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -71,6 +70,11 @@
 
       <div id="mensaje_error"></div>
 
+      <div class="form-group">
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+      </div>
+
       <table class="table">
         <thead>
           <tr>
@@ -103,8 +107,7 @@
       </table>
 
       <button type="submit" name="asignar" class="btn btn-primary">Asignar Sesión</button>
-        <a class="btn btn-success float-right" href="inicio.php">Inicio</a>
-
+      <a class="btn btn-success float-right" href="inicio.php">Inicio</a>
     </form>
   </div>
 

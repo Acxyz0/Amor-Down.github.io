@@ -337,22 +337,22 @@ $conn->close();
 
                                 <div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="madre" id="madre">
+                                        <input class="form-check-input" type="checkbox" name="tipoencargado[]" id="madre" value=>
                                         <label class="form-check-label" for="madre">Madre</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="padre" id="padre">
+                                        <input class="form-check-input" type="checkbox" name="tipoencargado[]" id="padre" value="padre">
                                         <label class="form-check-label" for="padre">Padre</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="encargado" id="encargado">
+                                        <input class="form-check-input" type="checkbox" name="tipoencargado[]" id="encargado">
                                         <label class="form-check-label" for="encargado">Encargado</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="mismo" id="mismo">
+                                        <input class="form-check-input" type="checkbox" name="tipoencargado[]" id="mismo">
                                         <label class="form-check-label" for="mismo">El mismo</label>
                                     </div>
 

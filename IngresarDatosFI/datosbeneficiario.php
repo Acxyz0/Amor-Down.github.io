@@ -19,6 +19,8 @@
             $nombre = $_POST['nombres'];
             $apellido = $_POST['apellidos'];
             $fechanacimiento = $_POST['fechaN'];
+            $edad = $_POST['edad'];
+            $Mayor_Menor = $_POST['mayorMenor'];
             $escolaridad = $_POST['escolaridad'];
             $fechaingreso = $_POST['fechaI'];
             $direccion = $_POST['direccion'];
@@ -26,8 +28,8 @@
             $numeroocupa = $_POST['numeroOH'];
 
             //Insert numero 1
-            $sql = "INSERT INTO beneficiario (codigobeneficiario, nombre, apellido, fechanacimiento, escolaridad, fechaingreso, direccion, numerohermanos, numeroocupa) 
-    VALUES ('$codigobeneficiario', '$nombre', '$apellido', '$fechanacimiento',  '$escolaridad', '$fechaingreso', '$direccion','$numerohermanos', '$numeroocupa')";
+            $sql = "INSERT INTO beneficiario (codigobeneficiario, nombre, apellido, fechanacimiento, edad, Mayor_Menor, escolaridad, fechaingreso, direccion, numerohermanos, numeroocupa) 
+    VALUES ('$codigobeneficiario', '$nombre', '$apellido', '$fechanacimiento', '$edad', '$Mayor_Menor', '$escolaridad', '$fechaingreso', '$direccion','$numerohermanos', '$numeroocupa')";
 
             if ($conn->query($sql)===false) {
                 echo "Error: " . $sql . "<br>" . $conn->error;
