@@ -17,5 +17,8 @@ if (isset($_POST['codigo_beneficiario'])) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo '<option value="' . $row['servicio'] . '">' . $row['servicio'] . '</option>';
   }
+
+  // Agregar la opción en blanco solo para el segundo cuadro de servicios
+  echo '<option value="">Seleccionar servicio</option>';
 }
 ?>

@@ -304,11 +304,11 @@ $conn->close();
                                     <label for="escolaridad">Escolaridad</label>
                                     <select class="form-control" name="escolaridad" id="escolaridad">
                                         <option value="0"></option>
-                                        <option value="1">No aplica</option>
-                                        <option value="2">Pre-Primaria</option>
-                                        <option value="3">Primaria</option>
-                                        <option value="4">Básico</option>
-                                        <option value="5">Diversificado</option>
+                                        <option value="No aplica">No aplica</option>
+                                        <option value="Pre-Primaria">Pre-Primaria</option>
+                                        <option value="Primaria">Primaria</option>
+                                        <option value="Básico">Básico</option>
+                                        <option value="Diversificado">Diversificado</option>
                                     </select>
                                 </div>
 

@@ -63,8 +63,14 @@
       <br>
 
       <div class="form-group">
-        <label for="servicio">Servicio:</label>
-        <select class="form-control" name="servicio" id="servicio">
+        <label for="servicio">Servicio #1:</label>
+        <select class="form-control" name="servicio1" id="servicio1">
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="servicio">Servicio #2:</label>
+        <select class="form-control" name="servicio1" id="servicio1">
         </select>
       </div>
 
@@ -112,14 +118,14 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  
   <script>
     $(document).ready(function() {
       $('#buscar_beneficiario').click(function() {
         var codigoBeneficiario = $('#codigo_beneficiario').val();
         if (codigoBeneficiario !== '') {
           $.ajax({
-            url: 'obtener_nombre_beneficiario.php', // Cambiar por la URL del archivo PHP que obtiene el nombre del beneficiario
+            url: 'obtener_nombre_beneficiario.php',
             method: 'POST',
             data: {
               codigo_beneficiario: codigoBeneficiario
@@ -138,13 +144,13 @@
         var codigoBeneficiario = $('#codigo_beneficiario').val();
         if (codigoBeneficiario !== '') {
           $.ajax({
-            url: 'obtener_servicios.php', // Cambiar por la URL del archivo PHP que obtiene los servicios
+            url: 'obtener_servicios.php',
             method: 'POST',
             data: {
               codigo_beneficiario: codigoBeneficiario
             },
             success: function(response) {
-              $('#servicio').html(response);
+              $('#servicio1, #servicio2').html('<option value="">Seleccione un servicio</option>' + response);
             },
             error: function() {
               // Manejar el error en caso de que la solicitud falle
@@ -160,11 +166,10 @@
         var form = $(this);
 
         $.ajax({
-          url: form.attr('action'), // Cambiar por la URL del archivo PHP que guarda las sesiones
+          url: form.attr('action'),
           method: form.attr('method'),
-          data: form.serialize(), // Obtener los datos del formulario en formato serializado
+          data: form.serialize(),
           success: function(response) {
-            // Manejar la respuesta del servidor (puede ser una redirección o un mensaje de éxito)
             console.log(response);
           },
           error: function() {
@@ -176,10 +181,10 @@
   </script>
 
   <script>
-    // Insertar mensajes de error en el contenedor
     var mensajeError = "<?php echo $mensajeError; ?>";
     document.getElementById("mensaje_error").innerHTML = mensajeError;
   </script>
+
 
 </body>
 

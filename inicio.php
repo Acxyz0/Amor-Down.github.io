@@ -67,6 +67,9 @@ if (!isset($_SESSION["id"])) {
             <a class="btn btn-success btn-lg" href="Ficha de Ingreso.php">Ficha de Ingreso</a>
         </div>
         <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="Verbeneficiarios.php">Ver beneficiarios</a>
+        </div>
+        <div class="mt-4 text-center">
             <a class="btn btn-success btn-lg" href="archivos.php">Ver Archivos PDF</a>
         </div>
         <div class="mt-4 text-center">
@@ -77,6 +80,9 @@ if (!isset($_SESSION["id"])) {
         </div>
         <div class="mt-4 text-center">
             <a class="btn btn-success btn-lg" href="versesiones.php">Ver Sesiones Asignadas</a>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn btn-success btn-lg" href="CRUD/IngresarUsuario.php">Ingresar un usuario</a>
         </div>
     </div>
 

@@ -102,7 +102,9 @@
             </button>
 
           </div>
+
         </div>
+
       </form>
     </div>
 
@@ -137,10 +139,13 @@
             <button type="submit" class="btn btn-primary">
               <i class="fas fa-edit"></i> Actualizar Usuario
             </button>
-
           </div>
         </div>
       </form>
+
+    </div>
+    <div class="mt-4 text-center">
+      <a class="btn btn-success btn-lg" href="../inicio.php">Inicio</a>
     </div>
   </div>
 
