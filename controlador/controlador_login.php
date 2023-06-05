@@ -7,7 +7,7 @@ if (!empty($_POST["btningresar"])) {
         $password = $_POST["password"];
         
         // Aquí debes establecer la conexión a tu base de datos
-        $conexion = new mysqli("localhost", "root", "", "amordown");
+        $conexion = new mysqli("localhost", "id20863140_amordownorg", "AmorDown_2023", "id20863140_amordown");
         
         // Verificar si la conexión fue exitosa
         if ($conexion->connect_error) {
