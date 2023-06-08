@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -40,22 +41,15 @@
 
     <form action="guardar_sesiones.php" method="post">
       <div class="form-group">
-        <label for="codigo_beneficiario">Código del Beneficiario:</label>
+        <label for="nombre_beneficiario">Nombre del beneficiario:</label>
         <div class="input-group mb-3">
-          <input type="text" name="codigo_beneficiario" id="codigo_beneficiario" class="form-control">
+          <input type="text" name="nombre_beneficiario" id="nombre_beneficiario" class="form-control">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button" id="buscar_beneficiario">Buscar</button>
           </div>
         </div>
       </div>
 
-      <br>
-      <div class="form-group">
-        <label for="nombre_beneficiario">Nombre del beneficiario:</label>
-        <div class="input-group mb-3">
-          <input type="text" name="nombre_beneficiario" id="nombre_beneficiario" class="form-control" readonly>
-        </div>
-      </div>
       <br>
 
       <button type="button" id="obtener_servicio" class="btn btn-primary">Obtener Servicio</button>
@@ -70,7 +64,7 @@
 
       <div class="form-group">
         <label for="servicio">Servicio #2:</label>
-        <select class="form-control" name="servicio1" id="servicio1">
+        <select class="form-control" name="servicio2" id="servicio2">
         </select>
       </div>
 
@@ -118,20 +112,20 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
+
   <script>
     $(document).ready(function() {
       $('#buscar_beneficiario').click(function() {
-        var codigoBeneficiario = $('#codigo_beneficiario').val();
-        if (codigoBeneficiario !== '') {
+        var nombreBeneficiario = $('#nombre_beneficiario').val();
+        if (nombreBeneficiario !== '') {
           $.ajax({
             url: 'obtener_nombre_beneficiario.php',
             method: 'POST',
             data: {
-              codigo_beneficiario: codigoBeneficiario
+              nombre_beneficiario: nombreBeneficiario
             },
             success: function(response) {
-              $('#nombre_beneficiario').val(response);
+              $('#codigo_beneficiario').val(response);
             },
             error: function() {
               // Manejar el error en caso de que la solicitud falle
@@ -141,13 +135,13 @@
       });
 
       $('#obtener_servicio').click(function() {
-        var codigoBeneficiario = $('#codigo_beneficiario').val();
-        if (codigoBeneficiario !== '') {
+        var nombreBeneficiario = $('#nombre_beneficiario').val();
+        if (nombreBeneficiario !== '') {
           $.ajax({
             url: 'obtener_servicios.php',
             method: 'POST',
             data: {
-              codigo_beneficiario: codigoBeneficiario
+              nombre_beneficiario: nombreBeneficiario
             },
             success: function(response) {
               $('#servicio1, #servicio2').html('<option value="">Seleccione un servicio</option>' + response);
@@ -184,7 +178,6 @@
     var mensajeError = "<?php echo $mensajeError; ?>";
     document.getElementById("mensaje_error").innerHTML = mensajeError;
   </script>
-
 
 </body>
 

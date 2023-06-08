@@ -7,7 +7,7 @@ if (!empty($_POST["btningresar"])) {
         $password = $_POST["password"];
         
         // Aquí debes establecer la conexión a tu base de datos
-        $conexion = new mysqli("localhost", "id20863140_amordownorg", "AmorDown_2023", "id20863140_amordown");
+        $conexion = new mysqli("localhost", "root", "", "amordown");
         
         // Verificar si la conexión fue exitosa
         if ($conexion->connect_error) {
@@ -27,7 +27,7 @@ if (!empty($_POST["btningresar"])) {
             $_SESSION["nombres"] = $datos->Nombres;
             $_SESSION["apellidos"] = $datos->Apellidos;
             
-            header("Location: inicio.php");
+            header("Location: ../inicio.php");
             exit();
         } else {
             $error = "Acceso Denegado";
