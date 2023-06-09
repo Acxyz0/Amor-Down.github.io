@@ -36,7 +36,3 @@ function incrementarCodigo($codigo) {
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>
-
-<!-- HTML -->
-<p for="codigoBeneficiario">Código del beneficiario:</p>
-<input type="text" id="codigoBeneficiario" name="codigoBeneficiario" value="<?php echo $nuevoCodigo; ?>"><br><br>

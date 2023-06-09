@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,7 +24,7 @@
       width: 100%;
       margin: 0 auto;
       padding: 20px;
-      background-color: #fff;
+      background-color: #e6e6fa; /* Morado claro */
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -35,6 +32,7 @@
     .custom-login-container h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: #483d8b; /* Azul medio */
     }
 
     .form-group {
@@ -47,6 +45,13 @@
 
     .btn-login {
       width: 100%;
+      background-color: #483d8b; /* Azul medio */
+      border-color: #483d8b; /* Azul medio */
+    }
+
+    .btn-login:hover {
+      background-color: #6a5acd; /* Azul medio oscuro */
+      border-color: #6a5acd; /* Azul medio oscuro */
     }
   </style>
 </head>

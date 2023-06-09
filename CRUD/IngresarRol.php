@@ -1,5 +1,5 @@
 <?php
-include "controlador/controlador_login.php";
+include "../controlador/controlador_login.php";
 ?>
 
 <?php
@@ -7,12 +7,15 @@ include "controlador/controlador_login.php";
 if (!isset($_SESSION["id"])) {
 }
 ?>
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Datos del Beneficiario</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Administrador de Roles</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -23,11 +26,6 @@ if (!isset($_SESSION["id"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
     <style>
-        body {
-            background-color: #f7f7f7;
-            font-family: Arial, sans-serif;
-        }
-
         /* Sidebar */
         .sidebar {
             position: fixed;
@@ -115,81 +113,10 @@ if (!isset($_SESSION["id"])) {
             font-size: 20px;
             /* Aumentar el tamaño de la letra */
         }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .table {
-            margin-top: 30px;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .table th {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            padding: 10px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .table td {
-            border: 1px solid #dee2e6;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .styled-table {
-            margin-top: 30px;
-            background-color: #fff;
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            border-collapse: separate;
-            border-spacing: 0;
-            overflow: auto;
-            border-collapse: collapse;
-        }
-
-        .styled-table th,
-        .styled-table td {
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-            white-space: nowrap;
-            border: 1px solid #dee2e6;
-            border: none;
-        }
-
-        .styled-table th {
-            background-color: #8a2be2;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .styled-table tbody tr:nth-child(even) {
-            background-color: #f7f7f7;
-        }
-
-        .styled-table tbody tr:hover {
-            background-color: #e9ecef;
-        }
     </style>
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="navbar-collapse" id="navbarNav">
@@ -202,104 +129,162 @@ if (!isset($_SESSION["id"])) {
         </nav>
     </header>
 
-    <div class="container">
-        <h1 class="mt-4">Datos del Beneficiario</h1>
+    <main>
+        <div class="container">
+            <h1>Administrador de Roles</h1>
+            <br>
 
-        <?php
-        // Realizar la conexión a la base de datos
-        $conexion = mysqli_connect('localhost', 'root', '', 'amordown');
+            <div>
+                <button class="btn btn-primary" onclick="toggleRoleForm()">
+                    <i class="fas fa-plus"></i> Agregar Rol
+                </button>
+            </div><br>
 
-        // Verificar la conexión
-        if (!$conexion) {
-            die("Error al conectar con la base de datos: " . mysqli_connect_error());
-        }
+            <div>
+                <button class="btn btn-primary" onclick="toggleRoleForm()">
+                    <i class="fas fa-plus"></i> Asignar Permisos
+                </button>
+            </div>
 
-        // Consultar los datos del beneficiario
-        $query = "SELECT codigobeneficiario, nombre, apellido, fechanacimiento, edad, Mayor_Menor, escolaridad, fechaingreso, direccion, numerohermanos, numeroocupa FROM beneficiario";
-        $resultado = mysqli_query($conexion, $query);
+            <br>
 
-        // Verificar si se obtuvieron resultados
-        if (mysqli_num_rows($resultado) > 0) {
-            $datosBeneficiario = mysqli_fetch_assoc($resultado);
-        } else {
-            echo "<p>No se encontraron datos del beneficiario.</p>";
-            exit;
-        }
-        ?>
-
-        <div class="table-responsive">
-            <table class="styled-table table table-bordered">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Código Beneficiario</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Edad</th>
-                        <th>Mayor/Menor</th>
-                        <th>Escolaridad</th>
-                        <th>Fecha de Ingreso</th>
-                        <th>Dirección</th>
-                        <th>Número de Hermanos</th>
-                        <th>Número que Ocupa</th>
+                        <th>ID</th>
+                        <th>Rol</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <td><?php echo $datosBeneficiario['codigobeneficiario']; ?></td>
-                        <td><?php echo $datosBeneficiario['nombre']; ?></td>
-                        <td><?php echo $datosBeneficiario['apellido']; ?></td>
-                        <td><?php echo $datosBeneficiario['fechanacimiento']; ?></td>
-                        <td><?php echo $datosBeneficiario['edad']; ?></td>
-                        <td><?php echo $datosBeneficiario['Mayor_Menor']; ?></td>
-                        <td><?php echo $datosBeneficiario['escolaridad']; ?></td>
-                        <td><?php echo $datosBeneficiario['fechaingreso']; ?></td>
-                        <td><?php echo $datosBeneficiario['direccion']; ?></td>
-                        <td><?php echo $datosBeneficiario['numerohermanos']; ?></td>
-                        <td><?php echo $datosBeneficiario['numeroocupa']; ?></td>
-                    </tr>
+                    <?php
+                    // Realizar la conexión a la base de datos
+                    $dbHost = 'localhost';
+                    $dbName = 'amordown';
+                    $dbUser = 'root';
+                    $dbPass = '';
+
+                    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+
+                    // Consultar los usuarios en la tabla "roles" y obtener el nombre del rol desde la tabla "roles"
+                    $query = "SELECT r.ID, r.Rol
+                  FROM roles r";
+                    $stmt = $conn->query($query);
+
+                    $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($roles as $roles) {
+                        echo "<tr>";
+                        echo "<td>{$roles['ID']}</td>";
+                        echo "<td>{$roles['Rol']}</td>";
+                        echo "<td>";
+                        echo "<div class='btn-group'>";
+                        echo "</button>";
+                        echo "</div>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
-    </div>
 
-            <!-- Div para la Sidebar -->
-            <div class="sidebar">
+        <div class="container" id="role-form" style="display: none;">
+            <h1>Agregar Rol</h1>
+
+            <div class="mb-3">
+                <form method="post" action="agregar_rol.php">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nombre del Rol" name="nombrerol" required>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar Rol
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container" id="permisos-form" style="display: none;">
+            <h1>Asignar Permisos</h1>
+
+            <div class="mb-3">
+                <form method="post" action="agregar_rol.php">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nombre del Rol" name="nombrerol" required>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar Rol
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Div para la Sidebar -->
+        <div class="sidebar">
             <div class="menu">
                 <ul>
-                    <li><a href="inicio.php"><i class="bi bi-house-fill"></i><span>Inicio</span></a></li>
+                    <li><a href="../inicio.php"><i class="bi bi-house-fill"></i><span>Inicio</span></a></li>
                     <li><a href="#"><i class="fas fa-users"></i><span>Beneficiario</span></a>
                         <ul class="submenu">
-                            <li><a href="Ficha de Ingreso.php"><span>Ficha de Ingreso</span></a></li>
-                            <li><a href="Verbeneficiarios.php"><span>Ver beneficiario</span></a></li>
-                            <li><a href="archivos.php"><span>Ver documentos PDF</span></a></li>
+                            <li><a href="../Ficha de Ingreso.php"><span>Ficha de Ingreso</span></a></li>
+                            <li><a href="../Verbeneficiarios.php"><span>Ver beneficiario</span></a></li>
+                            <li><a href="../archivos.php"><span>Ver documentos PDF</span></a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-book"></i><span>Sesiones</span></a>
                         <ul class="submenu">
-                            <li><a href="Sesiones.php"><span>Asignar sesiones</span></a></li>
-                            <li><a href="versesiones.php"><span>Sesiones Asignadas</span></a></li>
+                            <li><a href="../Sesiones.php"><span>Asignar sesiones</span></a></li>
+                            <li><a href="../versesiones.php"><span>Sesiones Asignadas</span></a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
                         <ul class="submenu">
-                            <li><a href="ReporteF9.php"><span>Reporte R9</span></a></li>
-                            <li><a href="ReporteF8.php"><span>Reporte R8</span></a></li>
-                            <li><a href="ReporteCuantitativo.php"><span>Reporte Cuantitativo</span></a></li>
-                            <li><a href="ReporteCualitativo.php"><span>Reporte Cualitativo</span></a></li>
+                            <li><a href="../Reportes/ReporteF9.php"><span>Reporte R9</span></a></li>
+                            <li><a href="../Reportes/ReporteF8.php"><span>Reporte R8</span></a></li>
+                            <li><a href="../Reportes/ReporteCuantitativo.php"><span>Reporte Cuantitativo</span></a></li>
+                            <li><a href="../Reportes/ReporteCualitativo.php"><span>Reporte Cualitativo</span></a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-users-cog"></i><span>Usuarios</span></a>
                         <ul class="submenu">
-                            <li><a href="CRUD/IngresarUsuario.php"><span>Administrar Usuario</span></a></li>
-                            <li><a href="CRUD/IngresarRol.php"><span>Administrar Rol</span></a></li>
+                            <li><a href="IngresarUsuario.php"><span>Administrar Usuario</span></a></li>
+                            <li><a href="IngresarRol.php"><span>Administrar Rol</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span></a></li>
+                    <li><a href="../controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
 
+    </main>
+
+    <script>
+        function toggleRoleForm() {
+            var roleForm = document.getElementById('role-form');
+            if (roleForm.style.display === 'none') {
+                roleForm.style.display = 'block';
+            } else {
+                roleForm.style.display = 'none';
+            }
+        }
+
+        function togglePermisosForm() {
+            var roleForm = document.getElementById('permisos-form');
+            if (roleForm.style.display === 'none') {
+                roleForm.style.display = 'block';
+            } else {
+                roleForm.style.display = 'none';
+            }
+        }
+    </script>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
@@ -330,6 +315,7 @@ if (!isset($_SESSION["id"])) {
             });
         });
     </script>
+
 </body>
 
 </html>

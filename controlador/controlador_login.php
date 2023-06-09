@@ -27,7 +27,7 @@ if (!empty($_POST["btningresar"])) {
             $_SESSION["nombres"] = $datos->Nombres;
             $_SESSION["apellidos"] = $datos->Apellidos;
             
-            header("Location: ../inicio.php");
+            header("Location: inicio.php");
             exit();
         } else {
             $error = "Acceso Denegado";
